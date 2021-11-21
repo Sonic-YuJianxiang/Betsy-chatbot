@@ -104,7 +104,7 @@ class ShowDishesByStyle(Action):
         dishes = select_dishes_by_style(tracker.get_slot("style"), tracker.get_slot("if_special"))
         for dish in dishes:
             dispatcher.utter_message(response="utter_show_dish", dish_name=dish[0], price=dish[1], order_times=dish[2])
-            dispatcher.utter_message(image="http://127.0.0.1/"+tracker.get_slot("style")+"/"+dish[0]+".jpg")
+            dispatcher.utter_message(image="http://127.0.0.1/menu/"+tracker.get_slot("style")+"/"+dish[0]+".jpg")
         dispatcher.utter_message(text="Which flavor of dish do you want to view?")
         return []
 
