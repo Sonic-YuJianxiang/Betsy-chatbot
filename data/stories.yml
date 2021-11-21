@@ -1,0 +1,116 @@
+version: "2.0"
+
+stories:
+- story: show business hours path
+  steps:
+  - intent: show_type_inform
+  - action: utter_show_type_inform
+  - intent: show_business_hours
+  - action: utter_show_business_hours
+  - intent: thank
+  - action: utter_thank_you
+
+- story: show address path
+  steps:
+  - intent: show_type_inform
+  - action: utter_show_type_inform
+  - intent: show_address
+  - action: utter_show_address
+  - intent: thank
+  - action: utter_thank_you
+
+- story: show tables remained path
+  steps:
+  - intent: show_type_inform
+  - action: utter_show_type_inform
+  - intent: show_tables_remained
+  - action: utter_show_tables_remained
+  - intent: thank
+  - action: utter_thank_you
+
+- story: show mennu path
+  steps:
+  - intent: show_type_inform
+  - action: utter_show_type_inform
+  - intent: show_menu
+  - action: utter_show_menu_type
+  - intent: select_dish_by_style
+    entities:
+    - if_special: "common"
+  - slot_was_set:
+    - if_special: "common"
+  - action: utter_ask_style
+  - intent: select_dish_by_flavor
+    entities:
+    - style: "Chinese Cuisine"
+  - slot_was_set:
+    - style: "Chinese Cuisine"
+  - action: utter_ask_flavor
+  - intent: check_menu_details
+    entities:
+    - flavor: "Aroma"
+  - slot_was_set:
+    - flavor: "Aroma"
+  - action: action_show_dishes
+
+- story: new customer reserves table path
+  steps:
+  - intent: reserve_table
+  - action: utter_ask_name
+  - intent: user_name
+    entities:
+    - name: "yjx"
+  - slot_was_set:
+    - name: "yjx"
+  - action: action_check_new
+  - intent: register
+  - action: new_user_details_form
+  - slot_was_set:
+    - email: "1347256906@qq.com"
+  - active_loop: new_user_details_form
+
+- story: old customer reserves table path
+  steps:
+  - intent: reserve_table
+  - action: utter_ask_name
+  - intent: user_name
+    entities:
+    - name: "yjx"
+  - slot_was_set:
+    - name: "yjx"
+  - action: action_check_new
+  - intent: order_table
+  - action: new_order_form
+  - active_loop: new_order_form
+
+- story: user wants to cancel reservation path
+  steps:
+  - intent: reserve_table
+  - action: utter_ask_name
+  - intent: user_name
+    entities:
+    - name: "yjx"
+  - slot_was_set:
+    - name: "yjx"
+  - action: action_check_new
+  - intent: order_table
+  - action: new_order_form
+  - active_loop: new_order_form
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: affirm
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_confirm_cancel
+
+- story: user wants to feedback to Fresh Feast path
+  steps:
+  - intent: feedback
+  - action: utter_ask_order_number
+  - intent: show_order_number
+  - action: utter_choose_feedback_type
+  - intent: choose_feedback_by_type
+  - action: utter_feedback_criteria
+  - intent: Betsy_receive_feedback
+  - action: utter_thank_for_feedback

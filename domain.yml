@@ -1,0 +1,294 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- tell_name:
+    use_entities: true
+- show_type_inform:
+    use_entities: true
+- show_tables_remained:
+    use_entities: true
+- show_business_hours:
+    use_entities: true
+- show_address:
+    use_entities: true
+- thank:
+    use_entities: true
+- reserve_table:
+    use_entities: true
+- order_table:
+    use_entities: true
+- user_name:
+    use_entities: true
+- user_email:
+    use_entities: true
+- stop:
+    use_entities: true
+- feedback:
+    use_entities: true
+- show_order_number:
+    use_entities: true
+- choose_feedback_by_type:
+    use_entities: true
+- Betsy_receive_feedback:
+    use_entities: true
+- register:
+    use_entities: true
+- show_menu:
+    use_entities: true
+- check_menu_details:
+    use_entities: true
+- select_dish_by_style:
+    use_entities: true
+- select_dish_by_flavor:
+    use_entities: true
+- number_of_people_present:
+    use_entities: true
+- time_arrived:
+    use_entities: true
+- add_new_order:
+    use_entities: true
+- recommend yourself:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+- call_staff_service:
+    use_entities: true
+entities:
+- name
+- email
+- order_number
+- if_special
+- type_of_table
+- create_time
+- arrival_time
+- style
+- flavor
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  email:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  order_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  type_of_table:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  arrival_time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  create_time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  if_special:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  flavor:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  style:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+responses:
+  utter_greet:
+  - text: Hey! How are you😀?
+  utter_goodbye:
+  - text: Bye. welcome to you next time😘!
+  utter_recommend_myself:
+  - text: Hi, My name is Betsy! Nice to meet you😉! I am the chatbot of Fresh Feast Restaurant🤖. Show information, Reserve a table and Feedback are three main services I can provide. If you want to know Fresh Feast, you can say "Show me some information about the restaurant". You can also directly say sentence such as "show address" to see specific information. If you wnat to reserve a table, you can say "Reserve a table". If you want to feedback to Fresh Feast, just say "Feedback". Of course, if you want to call staff service, just say "Staff service" to let me know and I will call staff to help you. Just input something to start!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_name:
+  - text: My name is Betsy.
+  utter_welcome:
+  - text: Welcome to Fresh Feast! My name is Betsy. What can I do for you😀?
+  utter_show_type_inform:
+  - buttons:
+    - payload: /show_business_hours
+      title: Business Hours⏲️
+    - payload: /show_address
+      title: Address🏠
+    - payload: /show_tables_remained
+      title: Tables Remained🪑
+    - payload: /show_menu
+      title: Menu📖
+    text: Of course! Which type of information do you want to know?
+  utter_show_business_hours:
+  - text: The business hours of Fresh Feast is from 8:00 am to 9:00 p.m.
+  utter_show_address:
+  - text: The address of Fresh Feast is Room ***, No.***, *** Road, *** District.
+  utter_show_tables_remained:
+  - text: The number of tables remained is enough.
+  utter_show_menu_type:
+  - buttons:
+    - payload: /select_dish_by_style{{"if_special":"today special"}}
+      title: Today Special Menu📘
+    - payload: /select_dish_by_style{{"if_special":"common"}}
+      title: Common Menu📒
+    text: We have "Today Special" menu and common menu for you to choose. Which one do you want to view?
+  utter_ask_style:
+  - buttons:
+    - payload: /select_dish_by_flavor{{"style":"Chinese Cuisine"}}
+      title: Chinese Cuisine
+    - payload: /select_dish_by_flavor{{"style":"Western Cuisine"}}
+      title: Western Cuisine
+    - payload: /select_dish_by_flavor{{"style":"Vegetarian Cuisine"}}
+      title: Vegetarian Cuisine
+    - payload: /select_dish_by_flavor{{"style":"Mediterranean Cuisine"}}
+      title: Mediterranean Cuisine
+    text: We have four styles of cuisines. Which one do you prefer?
+  utter_ask_flavor:
+  - buttons:
+    - payload: /check_menu_details{{"flavor":"aroma"}}
+      title: Aroma🍖
+    - payload: /check_menu_details{{"flavor":"spicy"}}
+      title: Spicy🌶️
+    - payload: /check_menu_details{{"flavor":"sour"}}
+      title: Sour🍋
+    - payload: /check_menu_details{{"flavor":"fresh"}}
+      title: Fresh🐟
+    - payload: /check_menu_details{{"flavor":"sweet"}}
+      title: Sweet🍬
+    text: We have four flavors of cuisines. Which one do you prefer?
+  utter_menu_details:
+  - text: 'Your choice: Menu: {if_special} menu, Style: {style}, Flavor: {flavor}.Here is the menu you want to see:'
+  utter_show_dish:
+  - text: 'Dish Name: {dish_name}, Price: {price}, Order Times: {order_times}'
+  utter_thank_you:
+  - text: You are welcome💖!
+  utter_ask_name:
+  - text: Ok! Can you tell me your name?
+  utter_ok:
+  - text: OK!
+  utter_ask_email:
+  - text: What is your email📧?
+  utter_details_thanks:
+  - text: |-
+      Congratulation🎇! You have become one member of Fresh Feast!
+      Name: {name},
+      Email: {email}
+  utter_show_order:
+  - text: |-
+      Here is your new order information:
+      Name: {name}
+      Create time: {create_time}
+      Type of table: {type_of_table}
+      Arrival time: {arrival_time} 
+      Here is your order number: {order_number}.
+      It will be useful when you want to cancel reservation and give feedbacl. 
+       What else can I help you?
+  utter_ask_type_of_table:
+  - buttons:
+    - payload: /time_arrived{{"type_of_table":"two people"}}
+      title: Table for two people
+    - payload: /time_arrived{{"type_of_table":"four people"}}
+      title: Table for four people
+    - payload: /time_arrived{{"type_of_table":"six people"}}
+      title: Table for six people
+    - payload: /time_arrived{{"type_of_table":"eight people"}}
+      title: Table for eight people
+    - payload: /time_arrived{{"type_of_table":"ten people"}}
+      title: Table for ten people
+    text: Can you tell me which type of table you want to order?
+  utter_ask_arrival_time:
+  - text: 'When will you arrive? (For example: today or tomorrow)'
+  utter_ask_continue:
+  - text: Are you sure to canncel the reservation🙏?
+  utter_confirm_cancel:
+  - text: |-
+      The reservation has been cancelled.
+      What else can I do for you😀?
+  utter_deny_cancel:
+  - text: Never mind.
+  utter_ask_order_number:
+  - text: I am gald that you can give some feedback to us😊!Can you show me your order number?
+  utter_choose_feedback_type:
+  - buttons:
+    - payload: /choose_feedback_by_type
+      title: Food
+    - payload: /choose_feedback_by_type
+      title: Comfort
+    - payload: /choose_feedback_by_type
+      title: Ambience
+    - payload: /choose_feedback_by_type
+      title: Staff Professionalism
+    - payload: /choose_feedback_by_type
+      title: Cleanliness
+    text: Which type of feedback do you want to choose?
+  utter_feedback_criteria:
+  - buttons:
+    - payload: /Betsy_receive_feedback
+      title: Low😥
+    - payload: /Betsy_receive_feedback
+      title: Medium😉
+    - payload: /Betsy_receive_feedback
+      title: Good🤗
+    text: What do you think of Betsy's service level?
+  utter_thank_for_feedback:
+  - text: |-
+      Thank you for your valuable feedback!
+      I will improve myself to provide better service💪!
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase🙇‍♀️?
+  utter_switch_human_service:
+  - text: Ok. I will transfer you to connect to a human supervisor🔄.
+actions:
+- action_add_new_customer
+- action_order_number
+- action_check_new
+- action_add_new_order
+- action_show_dishes
+forms:
+  new_user_details_form:
+    required_slots:
+      email:
+      - entity: email
+        type: from_entity
+  new_order_form:
+    required_slots:
+      arrival_time:
+      - entity: arrival_time
+        type: from_entity
+      type_of_table:
+      - entity: type_of_table
+        type: from_entity
+e2e_actions: []

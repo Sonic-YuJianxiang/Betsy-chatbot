@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv
+venv/
+
+events.db*
+rasa.db
+story_graph.dot

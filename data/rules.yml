@@ -1,0 +1,104 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the customer says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the customer challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say greet anytime the customer says hi
+  steps:
+  - intent: greet
+  - action: utter_welcome
+
+- rule: Recommend yourself when the customer say help
+  steps:
+  - intent: recommend yourself
+  - action: utter_recommend_myself
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+- rule: Activate New User Form
+  steps:
+  - intent: register
+  - action: new_user_details_form
+  - active_loop: new_user_details_form
+
+- rule: Submit New User Form
+  condition:
+  - active_loop: new_user_details_form
+  steps:
+  - action: new_user_details_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_details_thanks
+  - action: action_add_new_customer
+
+- rule: Interruption in New User Form
+  condition:
+  - active_loop: new_user_details_form
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - action: new_user_details_form
+  - active_loop: new_user_details_form
+
+- rule: Activate New Reservation Form
+  steps:
+  - intent: order_table
+  - action: new_order_form
+  - active_loop: new_order_form
+
+- rule: Submit New Reservation Form
+  condition:
+  - active_loop: new_order_form
+  steps:
+  - action: new_order_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_order_number
+  - action: action_add_new_order
+
+- rule: Interruption in New Reservation Form
+  condition:
+  - active_loop: new_order_form
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - action: new_order_form
+  - active_loop: new_order_form
+
+- rule: User regrets to cancel reservation form
+  condition:
+  - active_loop: new_order_form
+  steps:
+  - intent: deny
+  - action: utter_deny_cancel
+  - action: new_order_form
+  - active_loop: new_order_form
+
+- rule: Show type of feedback after receiving order number
+  steps:
+  - intent: show_order_number
+  - action: utter_choose_feedback_type
+    
+- rule: Betsy receive feedback
+  steps:
+    - intent: Betsy_receive_feedback
+    - action: utter_thank_for_feedback
+
+- rule: Swich to human supervisor when the customer calls for staff service
+  steps:
+    - intent: call_staff_service
+    - action: utter_switch_human_service

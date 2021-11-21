@@ -1,0 +1,202 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - let's go
+    - good afternoon
+    - how are you?
+- intent: recommend yourself
+  examples: |
+    - Help
+    - recommend yourself
+    - recommend
+    - Can you recommend yourself?
+    - I need some help
+    - Can you give me some help?
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - bye
+    - goodbye
+    - bye bye
+    - see you later
+    - by
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - of course
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - I don't think so
+    - regret
+    - I regret
+- intent: stop
+  examples: |
+    - stop
+    - sorry, I want to stop
+    - cancel
+    - sorry, I want to cancel
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: tell_name
+  examples: |
+    - what is your name?
+    - tell me your name
+    - what others call you
+    - what should I call you?
+    - name
+- intent: thank
+  examples: |
+    - Thank you
+    - Thanks
+    - than
+- intent: show_type_inform
+  examples: |
+    - Can you show me some information about the Fresh Feast?
+    - Show me some information about the Fresh Feast restaurant
+    - Show me some tips about the Fresh Feast restaurant
+    - I want to know about Fresh Feast restaurant
+    - Can you give me some tips?
+- intent: show_business_hours
+  examples: |
+    - Can you show me business hours of the restaurant?
+    - Show me business hours of the restaurant
+    - I want to know about the business hours
+    - Business hours
+    - When will you open?
+- intent: show_address
+  examples: |
+    - Can you show me address of the Fresh Feast restaurant?
+    - Can you show me location of the Fresh Feast restaurant?
+    - Show me address of the Fresh Feast restaurant
+    - Show me location of the Fresh Feast restaurant
+    - I want to know about the address
+    - I want to know about the location
+    - Address
+    - Location
+    - show location
+    - Where is it?
+    - where?
+- intent: show_tables_remained
+  examples: |
+    - Can you show me tables remained of the restaurant?
+    - Show me tables remained of the restaurant
+    - I want to know about the tables remained
+    - Tables remained
+    - Are tables enough?
+- intent: user_name
+  examples: |
+    - my name is [yjx](name)
+    - my name is [bww](name)
+    - my name is [Prabhat Ram](name)
+    - [yjx](name)
+    - [bww](name)
+    - [Prabhat Ram](name)
+    - [yjx](name) is my name
+    - [bww](name) is my name
+    - [Prabhat Ram](name) is my name
+    - you can call me [yjx](name)
+    - you can call me [bww](name)
+    - you can call me [Prabhat Ram](name)
+- intent: user_email
+  examples: |
+    - my email is [1347256906@qq.com](email)
+    - [1347256906@qq.com](email) is my email
+    - [1347256906@qq.com](email)
+    - [ykk1912@gmail.com](email)
+    - [jiyu18@student.oulu.fi](email)
+    - [prabhatram@teacher.oulu.fi](email)
+- intent: number_of_people_present
+  examples: |
+    - How many seats can table in your restaurant offer?
+    - What kind of table can you provide?
+- intent: time_arrived
+  examples: |
+    - may be table for [four people](type_of_table)
+    - Table for [four people](type_of_table)
+    - I want to order table for [four people](type_of_table)
+    - Order one table for [four people](type_of_table)
+- intent: add_new_order
+  examples: |
+    - I will arrive at [tomorrow](arrival_time)
+    - [Tomorrow](arrival_time) may be
+    - [Tomorrow](arrival_time)
+    - I will arrive at [today](arrival_time)
+    - [today](arrival_time) may be
+    - [Today](arrival_time)
+- intent: show_menu
+  examples: |
+    - Can you show me the menu of the restaurant?
+    - Show me the menu of the restaurant
+    - I want to know about the menu
+    - Menu
+    - Mnu
+    - I want to order dishes.
+    - Dish
+- intent: select_dish_by_style
+  examples: |
+    - I choose [common](if_special) menu
+    - I choose [special](if_special) menu
+    - [common](if_special) menu please
+    - [special](if_special) menu please
+- intent: select_dish_by_flavor
+  examples: |
+    - [Chinese Cuisine](style)
+    - [Chinese Cuisine](style) style
+    - I like [Chinese Cuisine](style)
+- intent: check_menu_details
+  examples: |
+    - [Aroma](flavor)
+    - [Aroma](flavor) flavor
+    - I like [Aroma](flavor) flavor
+- intent: reserve_table
+  examples: |
+    - Can I reserve a table?
+    - I want to reserve a table
+    - Reserve a table
+- intent: register
+  examples: |
+    - Register
+    - I want to register a new account
+    - Can I register?
+    - ok
+- intent: feedback
+  examples: |
+    - I want to give some feedback.
+    - Feedback
+    - Can I give some feedback?
+- intent: show_order_number
+  examples: |
+    - It is [000001](order_number)
+    - My order number is [000001](order_number)
+    - Here is my order number: [000001](order_number)
+- intent: call_staff_service
+  examples: |
+    - Staff service
+    - Call staff service
+    - I want to call staff service
+    - human supervisor
+    - speak to a human supervisor
+- intent: nlu_fallback
+  examples: |
+    - [123](order_number)
+- regex: email
+  examples: |
+    - \w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+
+- regex: order_number
+  examples: |
+    - \d{6}
