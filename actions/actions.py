@@ -87,7 +87,7 @@ class ShowDishesByIfSpecial(Action):
         dishes = select_dishes_by_if_special(tracker.get_slot("if_special"))
         for dish in dishes:
             dispatcher.utter_message(response="utter_show_dish", dish_name=dish[0], price=dish[1], order_times=dish[2])
-            dispatcher.utter_message(image="http://127.0.0.1/"+dish[3]+"/"+dish[0]+".jpg")
+            dispatcher.utter_message(image="http://127.0.0.1/menu/"+dish[3]+"/"+dish[0]+".jpg")
         dispatcher.utter_message(text="Which style of dish do you want to view?")
         return []
 
@@ -122,6 +122,6 @@ class ShowDishes(Action):
         dishes = select_dishes(tracker.get_slot("style"), tracker.get_slot("flavor"), tracker.get_slot("if_special"))
         for dish in dishes:
             dispatcher.utter_message(response="utter_show_dish", dish_name=dish[0], price=dish[1], order_times=dish[2])
-            dispatcher.utter_message(image="http://127.0.0.1/"+tracker.get_slot("style")+"/"+dish[0]+".jpg")
+            dispatcher.utter_message(image="http://127.0.0.1/menu/"+tracker.get_slot("style")+"/"+dish[0]+".jpg")
         dispatcher.utter_message(text="What can I help you now?")
         return []
