@@ -88,6 +88,30 @@ def select_dishes(style, flavor, if_special):
     conn.close()
     return dishes
 
+def select_dishes_by_if_special(if_special):
+    database = r"betsy.db"
+    conn = create_connection(database)
+    cursor = conn.cursor()
+
+    sql = 'select dish_name, price, order_times, style from dish where special_dish=?'
+    cursor.execute(sql, (if_special,))
+    conn.commit()
+    dishes = cursor.fetchall()
+    conn.close()
+    return dishes
+
+def select_dishes_by_style(style, if_special):
+    database = r"betsy.db"
+    conn = create_connection(database)
+    cursor = conn.cursor()
+
+    sql = 'select dish_name, price, order_times from dish where style=? and special_dish=?'
+    cursor.execute(sql, (style, if_special,))
+    conn.commit()
+    dishes = cursor.fetchall()
+    conn.close()
+    return dishes
+
 # if __name__ == '__main__':
 #     print(check_customer_by_name("yjq"))
     # add_customer("yjx", "1347256906@qq.com", "12345")

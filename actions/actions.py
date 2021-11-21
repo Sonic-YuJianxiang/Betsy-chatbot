@@ -7,7 +7,7 @@ from rasa_sdk.events import SlotSet, EventType
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet
-from connect_db import check_customer_by_name, add_customer, select_dishes,add_order
+from connect_db import check_customer_by_name, add_customer, select_dishes,add_order,select_dishes_by_if_special,select_dishes_by_style
 import random
 import string
 import datetime
@@ -73,6 +73,40 @@ class GetOrderNumber(Action):
     ) -> List[Dict[Text, Any]]:
         order_number = ''.join(random.sample(string.digits,6))
         return [SlotSet(key = "order_number", value = order_number)]
+
+class ShowDishesByIfSpecial(Action):
+    def name(self) -> Text:
+        return 'action_show_dishes_by_if_special'
+
+    def run(
+        self, 
+        dispatcher: "CollectingDispatcher", 
+        tracker: Tracker, domain: "DomainDict"
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(response="utter_menu_details_if_special", is_special=tracker.get_slot("if_special"))
+        dishes = select_dishes_by_if_special(tracker.get_slot("if_special"))
+        for dish in dishes:
+            dispatcher.utter_message(response="utter_show_dish", dish_name=dish[0], price=dish[1], order_times=dish[2])
+            dispatcher.utter_message(image="http://127.0.0.1/"+dish[3]+"/"+dish[0]+".jpg")
+        dispatcher.utter_message(text="Which style of dish do you want to view?")
+        return []
+
+class ShowDishesByStyle(Action):
+    def name(self) -> Text:
+        return 'action_show_dishes_by_style'
+
+    def run(
+        self, 
+        dispatcher: "CollectingDispatcher", 
+        tracker: Tracker, domain: "DomainDict"
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(response="utter_menu_details_style", is_special=tracker.get_slot("if_special"), style=tracker.get_slot("style"))
+        dishes = select_dishes_by_style(tracker.get_slot("style"), tracker.get_slot("if_special"))
+        for dish in dishes:
+            dispatcher.utter_message(response="utter_show_dish", dish_name=dish[0], price=dish[1], order_times=dish[2])
+            dispatcher.utter_message(image="http://127.0.0.1/"+tracker.get_slot("style")+"/"+dish[0]+".jpg")
+        dispatcher.utter_message(text="Which flavor of dish do you want to view?")
+        return []
 
 class ShowDishes(Action):
     def name(self) -> Text:

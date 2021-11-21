@@ -189,8 +189,12 @@ responses:
     - payload: /check_menu_details{{"flavor":"sweet"}}
       title: Sweet🍬
     text: We have four flavors of cuisines. Which one do you prefer?
+  utter_menu_details_if_special:
+  - text: 'Your choice: Menu: {if_special} menu. Here is the menu you want to see:'
+  utter_menu_details_style:
+  - text: 'Your choice: Menu: {if_special} menu, Style: {style}. Here is the menu you want to see:'
   utter_menu_details:
-  - text: 'Your choice: Menu: {if_special} menu, Style: {style}, Flavor: {flavor}.Here is the menu you want to see:'
+  - text: 'Your choice: Menu: {if_special} menu, Style: {style}, Flavor: {flavor}. Here is the menu you want to see:'
   utter_show_dish:
   - text: 'Dish Name: {dish_name}, Price: {price}, Order Times: {order_times}'
   utter_thank_you:
@@ -276,6 +280,8 @@ actions:
 - action_order_number
 - action_check_new
 - action_add_new_order
+- action_show_dishes_by_if_special
+- action_show_dishes_by_style
 - action_show_dishes
 forms:
   new_user_details_form:

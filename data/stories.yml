@@ -39,12 +39,14 @@ stories:
     - if_special: "common"
   - slot_was_set:
     - if_special: "common"
+  - action: action_show_dishes_by_if_special
   - action: utter_ask_style
   - intent: select_dish_by_flavor
     entities:
     - style: "Chinese Cuisine"
   - slot_was_set:
     - style: "Chinese Cuisine"
+  - action: action_show_dishes_by_style
   - action: utter_ask_flavor
   - intent: check_menu_details
     entities:
