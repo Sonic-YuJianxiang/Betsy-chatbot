@@ -134,7 +134,7 @@ responses:
   utter_goodbye:
   - text: Bye. welcome to you next time😘!
   utter_recommend_myself:
-  - text: Hi, My name is Betsy! Nice to meet you😉! I am the chatbot of Fresh Feast Restaurant🤖. Show information, Reserve a table and Feedback are three main services I can provide. If you want to know Fresh Feast, you can say "Show me some information about the restaurant". You can also directly say sentence such as "show address" to see specific information. If you wnat to reserve a table, you can say "Reserve a table". If you want to feedback to Fresh Feast, just say "Feedback". Of course, if you want to call staff service, just say "Staff service" to let me know and I will call staff to help you. Just input something to start!
+  - text: Hi, My name is Betsy! Nice to meet you😉! I am the chatbot of Fresh Feast Restaurant🤖. Show information, Reserve a table and Feedback are three main services I can provide. If you want to know Fresh Feast, you can say "Show me some information about the restaurant". You can also directly say sentence such as "where is Fresh Feast" to see specific information. If you wnat to reserve a table, you can say "Reserve a table". If you want to feedback to Fresh Feast, just say "Feedback". Of course, if you want to call staff service, just say "Staff service" to let me know and I will call staff to help you. Just input something to start!
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_name:
@@ -218,7 +218,7 @@ responses:
       Type of table: {type_of_table}
       Arrival time: {arrival_time} 
       Here is your order number: {order_number}.
-      It will be useful when you want to cancel reservation and give feedbacl. 
+      It will be useful when you want to cancel reservation and give feedback. 
        What else can I help you?
   utter_ask_type_of_table:
   - buttons:
