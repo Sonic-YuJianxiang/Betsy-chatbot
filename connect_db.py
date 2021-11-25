@@ -1,6 +1,8 @@
 import sqlite3
 from sqlite3.dbapi2 import Error
 
+# Create connection with databse with sqlite3
+# db_file is file name
 def create_connection(db_file):
     conn = None
     try:
@@ -10,16 +12,23 @@ def create_connection(db_file):
 
     return conn
 
+# Insert one new customer with name and email
 def add_customer(name, email):
     database = r"betsy.db"
+    #Create connection with database
     conn = create_connection(database)
+    #Oopen the cursor
     cursor = conn.cursor()
 
     sql = 'insert into customer (customer_id, name, email) values (null, ?, ?)'
+    #Execute the sql statement
     cursor.execute(sql, (name, email))
+    #Commit the execution
     conn.commit()
+    #Close the connection
     conn.close()
 
+# Select one customer by name
 def check_customer_by_name(name):
     database = r"betsy.db"
     conn = create_connection(database)
@@ -35,6 +44,7 @@ def check_customer_by_name(name):
     else:
         return True
 
+# Select one customer by email
 def check_customer_by_email(email):
     database = r"betsy.db"
     conn = create_connection(database)
@@ -50,6 +60,7 @@ def check_customer_by_email(email):
     else:
         return True
 
+# Create on new order by customer name, order number, create time, type of table and arrival time
 def add_order(customer_name, order_number, create_time, type_of_table, arrival_time):
     database = r"betsy.db"
     conn = create_connection(database)
@@ -64,6 +75,7 @@ def add_order(customer_name, order_number, create_time, type_of_table, arrival_t
     conn.commit()
     conn.close()
 
+# Select one order by order number
 def select_order_by_number(order_number):
     database = r"betsy.db"
     conn = create_connection(database)
@@ -76,6 +88,7 @@ def select_order_by_number(order_number):
     conn.close()
     return order
 
+# Select dishes by style, flavor and if special
 def select_dishes(style, flavor, if_special):
     database = r"betsy.db"
     conn = create_connection(database)
@@ -88,6 +101,7 @@ def select_dishes(style, flavor, if_special):
     conn.close()
     return dishes
 
+# Select dishes by if special
 def select_dishes_by_if_special(if_special):
     database = r"betsy.db"
     conn = create_connection(database)
@@ -100,6 +114,7 @@ def select_dishes_by_if_special(if_special):
     conn.close()
     return dishes
 
+# Select dishes by style
 def select_dishes_by_style(style, if_special):
     database = r"betsy.db"
     conn = create_connection(database)
