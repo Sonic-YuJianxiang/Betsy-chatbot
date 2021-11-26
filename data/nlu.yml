@@ -103,22 +103,127 @@ nlu:
     - my name is [yjx](name)
     - my name is [bww](name)
     - my name is [Prabhat Ram](name)
+    - my name is [zyd](name)
+    - my name is [Aarav](name)
+    - my name is [Aarush](name)
+    - my name is [Arhaan](name)
+    - my name is [Bhaavik](name)
+    - my name is [Bhavin](name)
+    - my name is [Aarav](name)
+    - my name is [Chitaksh](name)
+    - my name is [Divij](name)
+    - my name is [Divit](name)
+    - my name is [Ishir](name)
+    - my name is [Ivaan](name)
+    - my name is [Manav](name)
+    - my name is [Navodit](name)
+    - my name is [Ohas](name)
+    - my name is [Ranbir](name)
+    - my name is [Savar](name)
+    - my name is [Olavi](name)
+    - my name is [Kalevi](name)
+    - my name is [Tapio](name)
+    - my name is [Matti](name)
+    - my name is [IImari](name)
+    - my name is [Mikael](name)
+    - my name is [Joonas](name)
     - [yjx](name)
     - [bww](name)
     - [Prabhat Ram](name)
+    - [zyd](name)
+    - [Aarav](name)
+    - [Aarush](name)
+    - [Arhaan](name)
+    - [Bhaavik](name)
+    - [Bhavin](name)
+    - [Aarav](name)
+    - [Chitaksh](name)
+    - [Divij](name)
+    - [Divit](name)
+    - [Ishir](name)
+    - [Ivaan](name)
+    - [Manav](name)
+    - [Navodit](name)
+    - [Ohas](name)
+    - [Ranbir](name)
+    - [Savar](name)
+    - [Olavi](name)
+    - [Kalevi](name)
+    - [Tapio](name)
+    - [Matti](name)
+    - [IImari](name)
+    - [Mikael](name)
+    - [Joonas](name)
     - [yjx](name) is my name
     - [bww](name) is my name
     - [Prabhat Ram](name) is my name
+    - [zyd](name) is my name
+    - [Aarav](name) is my name
+    - [Aarush](name) is my name
+    - [Arhaan](name) is my name
+    - [Bhaavik](name) is my name
+    - [Bhavin](name) is my name
+    - [Aarav](name) is my name
+    - [Chitaksh](name) is my name
+    - [Divij](name) is my name
+    - [Divit](name) is my name
+    - [Ishir](name) is my name
+    - [Ivaan](name) is my name
+    - [Manav](name) is my name
+    - [Navodit](name) is my name
+    - [Ohas](name) is my name
+    - [Ranbir](name) is my name
+    - [Savar](name) is my name
+    - [Olavi](name) is my name
+    - [Kalevi](name) is my name
+    - [Tapio](name) is my name
+    - [Matti](name) is my name
+    - [IImari](name) is my name
+    - [Mikael](name) is my name
+    - [Joonas](name) is my name
     - you can call me [yjx](name)
     - you can call me [bww](name)
     - you can call me [Prabhat Ram](name)
+    - you can call me [zyd](name)
+    - you can call me [Aarav](name)
+    - you can call me [Aarush](name)
+    - you can call me [Arhaan](name)
+    - you can call me [Bhaavik](name)
+    - you can call me [Bhavin](name)
+    - you can call me [Aarav](name)
+    - you can call me [Chitaksh](name)
+    - you can call me [Divij](name)
+    - you can call me [Divit](name)
+    - you can call me [Ishir](name)
+    - you can call me [Ivaan](name)
+    - you can call me [Manav](name)
+    - you can call me [Navodit](name)
+    - you can call me [Ohas](name)
+    - you can call me [Ranbir](name)
+    - you can call me [Savar](name)
+    - you can call me [Olavi](name)
+    - you can call me [Kalevi](name)
+    - you can call me [Tapio](name)
+    - you can call me [Matti](name)
+    - you can call me [IImari](name)
+    - you can call me [Mikael](name)
+    - you can call me [Joonas](name)
 - intent: user_email
   examples: |
     - my email is [1347256906@qq.com](email)
+    - my email is [ykk1912@gmail.com](email)
+    - my email is [jiyu18@student.oulu.fi](email)
+    - my email is [Prabhat.Ram@oulu.fi](email)
+    - my emial is [prabhatram@teacher.oulu.fi](email)
     - [1347256906@qq.com](email) is my email
+    - [ykk1912@gmail.com](email) is my email
+    - [jiyu18@student.oulu.fi](email) is my email
+    - [Prabhat.Ram@oulu.fi](email) is my email
+    - [prabhatram@teacher.oulu.fi](email) is my email
     - [1347256906@qq.com](email)
     - [ykk1912@gmail.com](email)
     - [jiyu18@student.oulu.fi](email)
+    - [Prabhat.Ram@oulu.fi](email)
     - [prabhatram@teacher.oulu.fi](email)
 - intent: number_of_people_present
   examples: |
