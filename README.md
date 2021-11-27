@@ -1,5 +1,6 @@
-# A chatbot called Betsy designed for Fresh Feast Restaurant on the basis of RASA(Course Assignment). The turtoral below is in the Linux Operating System(Ubuntu20.04).
-
+# A chatbot called Betsy designed for Fresh Feast Restaurant on the basis of RASA(Course Assignment).
+The domain name is **Betsy.cf**. Tip: **The chatbot may be delayed or unresponsive because of network speed when you send first message to chatbot. Just try to wait for a few seconds or refresh page. If the website is unable to be accessed, please send one email to ykk1912@gmail.com to let me know.**
+# The turtoral of how to use Betsy in the local below is in the Linux Operating System(Ubuntu20.04).
 ## 1. Make sure you have installed Python3 in your computer
 ## 2. Create virtual environment in the rasa project cloned
 ### 1. install python3-venv
